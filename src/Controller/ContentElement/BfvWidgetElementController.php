@@ -46,18 +46,10 @@ class BfvWidgetElementController extends AbstractContentElementController
             $provider->setTeamId($setting->teamId);
             $provider->setSeasonId($setting->seasonId);
 
-            $width = '';
-            $arrSize = StringUtil::deserialize($model->bfvWidgetWidth);
-            if (isset($arrSize['value']) && '' !== $arrSize['value'] && $arrSize['value'] >= 0) {
-                $width = $arrSize['value'].$arrSize['unit'];
-                $provider->setWidth($width);
-            }
-            $height = '';
-            $arrSize = StringUtil::deserialize($model->bfvWidgetHeight);
-            if (isset($arrSize['value']) && '' !== $arrSize['value'] && $arrSize['value'] >= 0) {
-                $height = $arrSize['value'].$arrSize['unit'];
-                $provider->setHeight($height);
-            }
+            $width = $this->generateSizeValue($model->bfvWidgetWidth);
+            $provider->setWidth($width);
+            $height = $this->generateSizeValue($model->bfvWidgetHeight);
+            $provider->setHeight($height);
 
             $provider->setColorResults(BfvElementsSettingModel::generateColorValue($setting->colorResults));
             $provider->setColorNav(BfvElementsSettingModel::generateColorValue($setting->colorNav));
@@ -78,5 +70,16 @@ class BfvWidgetElementController extends AbstractContentElementController
         }
 
         return $template->getResponse();
+    }
+
+    private function generateSizeValue($sizeRaw): string
+    {
+        $size = 'undefined';
+        $arrSize = StringUtil::deserialize($sizeRaw);
+        if (isset($arrSize['value']) && '' !== $arrSize['value'] && $arrSize['value'] >= 0) {
+            $size = $arrSize['value'].$arrSize['unit'];
+        }
+
+        return $size;
     }
 }
