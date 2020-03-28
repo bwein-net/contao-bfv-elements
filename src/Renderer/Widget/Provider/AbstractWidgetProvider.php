@@ -140,6 +140,13 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
         $template->widgetMethod = $widgetMethod;
         $template->widgetParams = $widgetParams;
 
+        $template->widgetProvider = $this->supports;
+        $template->clubId = $this->clubId;
+        $template->teamId = $this->teamId;
+        $template->seasonId = $this->seasonId;
+        $template->width = $this->width;
+        $template->height = $this->height;
+
         return $template->parse();
     }
 

@@ -46,13 +46,17 @@ class BfvWidgetElementController extends AbstractContentElementController
             $provider->setTeamId($setting->teamId);
             $provider->setSeasonId($setting->seasonId);
 
+            $width = '';
             $arrSize = StringUtil::deserialize($model->bfvWidgetWidth);
             if (isset($arrSize['value']) && '' !== $arrSize['value'] && $arrSize['value'] >= 0) {
-                $provider->setWidth($arrSize['value'].$arrSize['unit']);
+                $width = $arrSize['value'].$arrSize['unit'];
+                $provider->setWidth($width);
             }
+            $height = '';
             $arrSize = StringUtil::deserialize($model->bfvWidgetHeight);
             if (isset($arrSize['value']) && '' !== $arrSize['value'] && $arrSize['value'] >= 0) {
-                $provider->setHeight($arrSize['value'].$arrSize['unit']);
+                $height = $arrSize['value'].$arrSize['unit'];
+                $provider->setHeight($height);
             }
 
             $provider->setColorResults(BfvElementsSettingModel::generateColorValue($setting->colorResults));
@@ -62,6 +66,13 @@ class BfvWidgetElementController extends AbstractContentElementController
 
             $provider->setTemplateScripts($setting->templateScripts);
             $provider->setTemplateInit($setting->templateInit);
+
+            $template->widgetProvider = $model->bfvWidgetProvider;
+            $template->clubId = $setting->clubId;
+            $template->teamId = $setting->teamId;
+            $template->seasonId = $setting->seasonId;
+            $template->width = $width;
+            $template->height = $height;
 
             $template->bfvWidgetCode = $provider->generateWidgetCode();
         }
