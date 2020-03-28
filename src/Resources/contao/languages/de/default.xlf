@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="php" original="src/Resources/contao/languages/de/default.xlf" source-language="en"
+          target-language="de">
+        <body>
+            <trans-unit id="CTE.bfvElements">
+                <source>BFV-Elemente</source>
+                <target>BFV-Elemente</target>
+            </trans-unit>
+            <trans-unit id="CTE.bfvWidget.0">
+                <source>BFV-Widget</source>
+                <target>BFV-Widget</target>
+            </trans-unit>
+            <trans-unit id="CTE.bfvWidget.1">
+                <source>Generiert die Widgets des Bayerischen Fussball-Verbands</source>
+                <target>Generiert die Widgets des Bayerischen Fussball-Verbands</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

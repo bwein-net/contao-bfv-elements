@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+    _instanceof:
+        Bwein\BfvElements\Renderer\Widget\Provider\WidgetProviderInterface:
+            tags: ['bwein.bfv_elements.widget.provider']
+
+    Bwein\BfvElements\:
+        resource: '../../../src/*'
+        exclude: '../../../src/{DependencyInjection,Resources}'
+
