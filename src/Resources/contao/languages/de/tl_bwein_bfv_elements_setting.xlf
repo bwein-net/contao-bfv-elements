@@ -77,6 +77,18 @@
                 <source>Farbe Verein im Bereich Header und Spielauflistung - Vordergrund-/Schriftfarbe</source>
                 <target>Farbe Verein im Bereich Header und Spielauflistung - Vordergrund-/Schriftfarbe</target>
             </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.template_legend">
+                <source>Template-Auswahl</source>
+                <target>Template-Auswahl</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.templateScripts.0">
+                <source>Template für Scripts im Header</source>
+                <target>Template für Scripts im Header</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.templateInit.0">
+                <source>Template zum initialisieren des Widgets</source>
+                <target>Template zum initialisieren des Widgets</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

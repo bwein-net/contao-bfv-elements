@@ -38,6 +38,10 @@ interface WidgetProviderInterface
 
     public function setColorClubName(string $colorClubName): void;
 
+    public function setTemplateScripts(string $templateScripts): void;
+
+    public function setTemplateInit(string $templateInit): void;
+
     public function validate(): bool;
 
     public function generateWidgetCode(): string;

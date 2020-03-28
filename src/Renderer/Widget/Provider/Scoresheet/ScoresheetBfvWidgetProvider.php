@@ -36,7 +36,7 @@ class ScoresheetBfvWidgetProvider extends AbstractWidgetProvider
                 json_encode($this->getWidgetParams())
             );
 
-            return $this->generateWidgetLoader('BFVWidget.HTML5.zeigeSpielbericht', $widgetParams);
+            return $this->generateWidgetInit('BFVWidget.HTML5.zeigeSpielbericht', $widgetParams);
         }
 
         return '';

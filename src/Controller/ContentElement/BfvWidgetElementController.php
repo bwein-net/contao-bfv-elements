@@ -60,6 +60,9 @@ class BfvWidgetElementController extends AbstractContentElementController
             $provider->setBackgroundNav(BfvElementsSettingModel::generateColorValue($setting->backgroundNav));
             $provider->setColorClubName(BfvElementsSettingModel::generateColorValue($setting->colorClubName));
 
+            $provider->setTemplateScripts($setting->templateScripts);
+            $provider->setTemplateInit($setting->templateInit);
+
             $template->bfvWidgetCode = $provider->generateWidgetCode();
         }
 

@@ -27,6 +27,8 @@ use Contao\Model;
  * @property string $colorNav
  * @property string $backgroundNav
  * @property string $colorClubName
+ * @property string $templateScripts
+ * @property string $templateInit
  */
 class BfvElementsSettingModel extends Model
 {

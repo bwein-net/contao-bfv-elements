@@ -16,7 +16,7 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
             'mode' => 1,
             'fields' => ['name ASC'],
             'panelLayout' => 'filter;sort,search,limit',
-            'disableGrouping' => true
+            'disableGrouping' => true,
         ],
         'label' => [
             'fields' => ['name'],
@@ -53,7 +53,8 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
 
     'palettes' => [
         'default' => 'name;{id_legend},clubId,teamId,seasonId;
-        {color_legend},colorResults,colorNav,backgroundNav,colorClubName',
+        {color_legend},colorResults,colorNav,backgroundNav,colorClubName;
+        {template_legend},templateScripts,templateInit',
     ],
 
     'fields' => [
@@ -157,6 +158,24 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
                 'decodeEntities' => true,
                 'tl_class' => 'w50 wizard',
             ],
+            'sql' => "varchar(64) NOT NULL default ''",
+        ],
+        'templateScripts' => [
+            'exclude' => true,
+            'inputType' => 'select',
+            'options_callback' => static function () {
+                return Contao\Controller::getTemplateGroup('bfv_widget_scripts');
+            },
+            'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+            'sql' => "varchar(64) NOT NULL default ''",
+        ],
+        'templateInit' => [
+            'exclude' => true,
+            'inputType' => 'select',
+            'options_callback' => static function () {
+                return Contao\Controller::getTemplateGroup('bfv_widget_init');
+            },
+            'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(64) NOT NULL default ''",
         ],
     ],

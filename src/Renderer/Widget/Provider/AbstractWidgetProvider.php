@@ -31,6 +31,9 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
     protected $backgroundNav = 'undefined';
     protected $colorClubName = 'undefined';
 
+    protected $templateScripts = '';
+    protected $templateInit = '';
+
     /**
      * AbstractBfvWidgetProvider constructor.
      */
@@ -103,6 +106,16 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
         $this->colorClubName = $colorClubName;
     }
 
+    public function setTemplateScripts(string $templateScripts): void
+    {
+        $this->templateScripts = $templateScripts;
+    }
+
+    public function setTemplateInit(string $templateInit): void
+    {
+        $this->templateInit = $templateInit;
+    }
+
     public function validate(): bool
     {
         if (empty($this->widgetId)) {
@@ -114,14 +127,15 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
 
     protected function addWidgetAssets(): void
     {
-        $GLOBALS['TL_JAVASCRIPT']['bwein_bfv_widget'] = 'https://widget-prod.bfv.de/widget/widgetresource/widgetjs';
+        $template = new FrontendTemplate($this->templateScripts ?: 'bfv_widget_scripts');
+        $GLOBALS['TL_HEAD']['bwein_bfv_widget'] = $template->parse();
     }
 
-    protected function generateWidgetLoader(string $widgetMethod, string $widgetParams): string
+    protected function generateWidgetInit(string $widgetMethod, string $widgetParams): string
     {
         $this->addWidgetAssets();
 
-        $template = new FrontendTemplate('ce_bfv_widgetloader');
+        $template = new FrontendTemplate($this->templateInit ?: 'bfv_widget_init');
         $template->widgetId = $this->widgetId;
         $template->widgetMethod = $widgetMethod;
         $template->widgetParams = $widgetParams;
