@@ -3,11 +3,8 @@
 $GLOBALS['TL_DCA']['tl_content']['palettes']['bfvWidget'] = '
     {type_legend},type,headline;
     {bfvWidget_legend},
-        bfvWidgetProvider,
-        bfvWidgetClubId,bfvWidgetTeamId,
-        bfvWidgetSeasonId,
-        bfvWidgetWidth,bfvWidgetHeight,
-        bfvWidgetColorResults,bfvWidgetColorNav,bfvWidgetBackgroundNav,bfvWidgetColorClubName;
+        bfvWidgetProvider,bfvSetting,
+        bfvWidgetWidth,bfvWidgetHeight;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID;
@@ -26,37 +23,17 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetProvider'] = [
     'sql' => "varchar(128) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetClubId'] = [
+$GLOBALS['TL_DCA']['tl_content']['fields']['bfvSetting'] = [
     'exclude' => true,
-    'inputType' => 'text',
+    'filter' => true,
+    'inputType' => 'select',
     'eval' => [
-        'maxlength' => 255,
-        'decodeEntities' => true,
-        'tl_class' => 'clr w50',
-    ],
-    'sql' => "varchar(255) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetTeamId'] = [
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => [
-        'maxlength' => 255,
-        'decodeEntities' => true,
+        'mandatory' => true,
+        'chosen' => true,
         'tl_class' => 'w50',
+        'includeBlankOption' => true,
     ],
-    'sql' => "varchar(255) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetSeasonId'] = [
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => [
-        'maxlength' => 255,
-        'decodeEntities' => true,
-        'tl_class' => 'w50',
-    ],
-    'sql' => "varchar(255) NOT NULL default ''",
+    'sql' => 'int(10) unsigned NOT NULL default \'0\'',
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetWidth'] = [
@@ -81,56 +58,4 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetHeight'] = [
         'tl_class' => 'w50',
     ],
     'sql' => "varchar(255) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetColorResults'] = [
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => [
-        'maxlength' => 6,
-        'colorpicker' => true,
-        'isHexColor' => true,
-        'decodeEntities' => true,
-        'tl_class' => 'w50 wizard',
-    ],
-    'sql' => "varchar(64) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetColorNav'] = [
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => [
-        'maxlength' => 6,
-        'colorpicker' => true,
-        'isHexColor' => true,
-        'decodeEntities' => true,
-        'tl_class' => 'w50 wizard',
-    ],
-    'sql' => "varchar(64) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetBackgroundNav'] = [
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => [
-        'maxlength' => 6,
-        'colorpicker' => true,
-        'isHexColor' => true,
-        'decodeEntities' => true,
-        'tl_class' => 'w50 wizard',
-    ],
-    'sql' => "varchar(64) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['bfvWidgetColorClubName'] = [
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => [
-        'maxlength' => 6,
-        'colorpicker' => true,
-        'isHexColor' => true,
-        'decodeEntities' => true,
-        'tl_class' => 'w50 wizard',
-    ],
-    'sql' => "varchar(64) NOT NULL default ''",
 ];

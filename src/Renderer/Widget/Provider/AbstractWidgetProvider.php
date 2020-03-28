@@ -95,7 +95,7 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
 
     public function setBackgroundNav(string $backgroundNav): void
     {
-        $this->BackgroundNav = $backgroundNav;
+        $this->backgroundNav = $backgroundNav;
     }
 
     public function setColorClubName(string $colorClubName): void

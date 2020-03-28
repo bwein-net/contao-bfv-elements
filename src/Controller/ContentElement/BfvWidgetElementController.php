@@ -10,6 +10,7 @@
 
 namespace Bwein\BfvElements\Controller\ContentElement;
 
+use Bwein\BfvElements\Model\BfvElementsSettingModel;
 use Bwein\BfvElements\Renderer\Widget\Provider\WidgetProviderInterface;
 use Bwein\BfvElements\Renderer\Widget\WidgetFactory;
 use Contao\ContentModel;
@@ -38,11 +39,12 @@ class BfvWidgetElementController extends AbstractContentElementController
     protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
     {
         $provider = $this->widgetFactory->getWidgetProvider($model->bfvWidgetProvider);
-        if ($provider instanceof WidgetProviderInterface) {
+        $setting = BfvElementsSettingModel::findByPk($model->bfvSetting);
+        if ($provider instanceof WidgetProviderInterface && $setting instanceof BfvElementsSettingModel) {
             $provider->setWidgetId('bfv_widget_'.$model->id);
-            $provider->setClubId($model->bfvWidgetClubId);
-            $provider->setTeamId($model->bfvWidgetTeamId);
-            $provider->setSeasonId($model->bfvWidgetSeasonId);
+            $provider->setClubId($setting->clubId);
+            $provider->setTeamId($setting->teamId);
+            $provider->setSeasonId($setting->seasonId);
 
             $arrSize = StringUtil::deserialize($model->bfvWidgetWidth);
             if (isset($arrSize['value']) && '' !== $arrSize['value'] && $arrSize['value'] >= 0) {
@@ -53,18 +55,10 @@ class BfvWidgetElementController extends AbstractContentElementController
                 $provider->setHeight($arrSize['value'].$arrSize['unit']);
             }
 
-            if (!empty($model->bfvWidgetColorResults)) {
-                $provider->setColorResults('#'.$model->bfvWidgetColorResults);
-            }
-            if (!empty($model->bfvWidgetColorNav)) {
-                $provider->setColorNav('#'.$model->bfvWidgetColorNav);
-            }
-            if (!empty($model->bfvWidgetBackgroundNav)) {
-                $provider->setBackgroundNav('#'.$model->bfvWidgetBackgroundNav);
-            }
-            if (!empty($model->bfvWidgetColorClubName)) {
-                $provider->setColorClubName('#'.$model->bfvWidgetColorClubName);
-            }
+            $provider->setColorResults(BfvElementsSettingModel::generateColorValue($setting->colorResults));
+            $provider->setColorNav(BfvElementsSettingModel::generateColorValue($setting->colorNav));
+            $provider->setBackgroundNav(BfvElementsSettingModel::generateColorValue($setting->backgroundNav));
+            $provider->setColorClubName(BfvElementsSettingModel::generateColorValue($setting->colorClubName));
 
             $template->bfvWidgetCode = $provider->generateWidgetCode();
         }

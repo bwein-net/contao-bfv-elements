@@ -19,47 +19,13 @@
                     Parameter derzeit nicht möglich!
                 </target>
             </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetClubId.0">
-                <source>Verein-ID</source>
-                <target>Verein-ID</target>
+            <trans-unit id="tl_content.bfvSetting.0">
+                <source>Einstellung</source>
+                <target>Einstellung</target>
             </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetClubId.1">
-                <source>Aus der Adresse der BFV-Verein-Seite (&lt;a href=&quot;https://www.bfv.de/vereine/00ES8GNL2O00001AVV0AG08LVUPGND5I&quot;
-                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Verein-ID:
-                    00ES8GNL2O00001AVV0AG08LVUPGND5I
-                </source>
-                <target>Aus der Adresse der BFV-Verein-Seite (&lt;a href=&quot;https://www.bfv.de/vereine/00ES8GNL2O00001AVV0AG08LVUPGND5I&quot;
-                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Verein-ID:
-                    00ES8GNL2O00001AVV0AG08LVUPGND5I
-                </target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetTeamId.0">
-                <source>Mannschaft-ID</source>
-                <target>Mannschaft-ID</target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetTeamId.1">
-                <source>Aus der Adresse der BFV-Mannschaft-Seite (&lt;a href=&quot;https://www.bfv.de/mannschaften/016PIV7GM8000000VV0AG811VUDIC8D7&quot;
-                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Mannschaft-ID:
-                    016PIV7GM8000000VV0AG811VUDIC8D7
-                </source>
-                <target>Aus der Adresse der BFV-Mannschaft-Seite (&lt;a href=&quot;https://www.bfv.de/mannschaften/016PIV7GM8000000VV0AG811VUDIC8D7&quot;
-                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Mannschaft-ID:
-                    016PIV7GM8000000VV0AG811VUDIC8D7
-                </target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetSeasonId.0">
-                <source>Staffel-ID</source>
-                <target>Staffel-ID</target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetSeasonId.1">
-                <source>Aus der Adresse der BFV-Spiele-Übersicht (&lt;a href=&quot;https://service-prod.bfv.de/rest/pdfexport/spieltagsuebersicht?staffel=027FAV7N8000000UVS5489B3VUOI54T7-G&quot;
-                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Staffel-ID:
-                    027FAV7N8000000UVS5489B3VUOI54T7-G
-                </source>
-                <target>Aus der Adresse der BFV-Spiele-Übersicht (&lt;a href=&quot;https://service-prod.bfv.de/rest/pdfexport/spieltagsuebersicht?staffel=027FAV7N8000000UVS5489B3VUOI54T7-G&quot;
-                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Staffel-ID:
-                    027FAV7N8000000UVS5489B3VUOI54T7-G
-                </target>
+            <trans-unit id="tl_content.bfvSetting.1">
+                <source>Bitte wählen Sie eine BFV-Einstellung.</source>
+                <target>Bitte wählen Sie eine BFV-Einstellung.</target>
             </trans-unit>
             <trans-unit id="tl_content.bfvWidgetWidth.0">
                 <source>Breite</source>
@@ -76,22 +42,6 @@
             <trans-unit id="tl_content.bfvWidgetHeight.1">
                 <source>Bei Pixel mindestens 210 px - kleinere Maße sind laut BFV nicht möglich</source>
                 <target>Bei Pixel mindestens 210 px - kleinere Maße sind laut BFV nicht möglich</target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetColorResults.0">
-                <source>Farbe Ergebnisse - Vordergrund-/Schriftfarbe</source>
-                <target>Farbe Ergebnisse - Vordergrund-/Schriftfarbe</target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetColorNav.0">
-                <source>Farbe Navigationsblock - Vordergrund-/Schriftfarbe</source>
-                <target>Farbe Navigationsblock - Vordergrund-/Schriftfarbe</target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetBackgroundNav.0">
-                <source>Farbe Navigationsblock - Hintergrundfarbe</source>
-                <target>Farbe Navigationsblock - Hintergrundfarbe</target>
-            </trans-unit>
-            <trans-unit id="tl_content.bfvWidgetColorClubName.0">
-                <source>Farbe Verein im Bereich Header und Spielauflistung - Vordergrund-/Schriftfarbe</source>
-                <target>Farbe Verein im Bereich Header und Spielauflistung - Vordergrund-/Schriftfarbe</target>
             </trans-unit>
         </body>
     </file>

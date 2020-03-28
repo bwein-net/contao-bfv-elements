@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="php" original="src/Resources/contao/languages/de/tl_bwein_bfv_elements_setting.xlf" source-language="de"
+          target-language="de">
+        <body>
+            <trans-unit id="tl_bwein_bfv_elements_setting.name.0">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.name.1">
+                <source>Der Name wird nur für interne Zwecke verwendet und ist somit frei wählbar.</source>
+                <target>Der Name wird nur für interne Zwecke verwendet und ist somit frei wählbar.</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.id_legend">
+                <source>ID-Einstellungen</source>
+                <target>ID-Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.clubId.0">
+                <source>Verein-ID</source>
+                <target>Verein-ID</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.clubId.1">
+                <source>Aus der Adresse der BFV-Verein-Seite (&lt;a href=&quot;https://www.bfv.de/vereine/00ES8GNL2O00001AVV0AG08LVUPGND5I&quot;
+                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Verein-ID:
+                    00ES8GNL2O00001AVV0AG08LVUPGND5I
+                </source>
+                <target>Aus der Adresse der BFV-Verein-Seite (&lt;a href=&quot;https://www.bfv.de/vereine/00ES8GNL2O00001AVV0AG08LVUPGND5I&quot;
+                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Verein-ID:
+                    00ES8GNL2O00001AVV0AG08LVUPGND5I
+                </target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.teamId.0">
+                <source>Mannschaft-ID</source>
+                <target>Mannschaft-ID</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.teamId.1">
+                <source>Aus der Adresse der BFV-Mannschaft-Seite (&lt;a href=&quot;https://www.bfv.de/mannschaften/016PIV7GM8000000VV0AG811VUDIC8D7&quot;
+                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Mannschaft-ID:
+                    016PIV7GM8000000VV0AG811VUDIC8D7
+                </source>
+                <target>Aus der Adresse der BFV-Mannschaft-Seite (&lt;a href=&quot;https://www.bfv.de/mannschaften/016PIV7GM8000000VV0AG811VUDIC8D7&quot;
+                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Mannschaft-ID:
+                    016PIV7GM8000000VV0AG811VUDIC8D7
+                </target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.seasonId.0">
+                <source>Staffel-ID</source>
+                <target>Staffel-ID</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.seasonId.1">
+                <source>Aus der Adresse der BFV-Spiele-Übersicht (&lt;a href=&quot;https://service-prod.bfv.de/rest/pdfexport/spieltagsuebersicht?staffel=027FAV7N8000000UVS5489B3VUOI54T7-G&quot;
+                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Staffel-ID:
+                    027FAV7N8000000UVS5489B3VUOI54T7-G
+                </source>
+                <target>Aus der Adresse der BFV-Spiele-Übersicht (&lt;a href=&quot;https://service-prod.bfv.de/rest/pdfexport/spieltagsuebersicht?staffel=027FAV7N8000000UVS5489B3VUOI54T7-G&quot;
+                    target=&quot;_blank&quot;&gt;Beispiel öffnen&lt;/a&gt;) die Staffel-ID:
+                    027FAV7N8000000UVS5489B3VUOI54T7-G
+                </target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.color_legend">
+                <source>Farben</source>
+                <target>Farben</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.colorResults.0">
+                <source>Farbe Ergebnisse - Vordergrund-/Schriftfarbe</source>
+                <target>Farbe Ergebnisse - Vordergrund-/Schriftfarbe</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.colorNav.0">
+                <source>Farbe Navigationsblock - Vordergrund-/Schriftfarbe</source>
+                <target>Farbe Navigationsblock - Vordergrund-/Schriftfarbe</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.backgroundNav.0">
+                <source>Farbe Navigationsblock - Hintergrundfarbe</source>
+                <target>Farbe Navigationsblock - Hintergrundfarbe</target>
+            </trans-unit>
+            <trans-unit id="tl_bwein_bfv_elements_setting.colorClubName.0">
+                <source>Farbe Verein im Bereich Header und Spielauflistung - Vordergrund-/Schriftfarbe</source>
+                <target>Farbe Verein im Bereich Header und Spielauflistung - Vordergrund-/Schriftfarbe</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
