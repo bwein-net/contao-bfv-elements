@@ -1,8 +1,0 @@
-<div id="<?= $this->widgetId ?>">
-    Laden...
-</div>
-<script>
-    if (typeof BFVWidget !== 'undefined') {
-        <?= $this->widgetMethod ?>(<?= $this->widgetParams ?>);
-    }
-</script>

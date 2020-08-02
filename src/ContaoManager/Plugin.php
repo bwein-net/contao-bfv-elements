@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of BFV Elements for Contao Open Source CMS.
  *
@@ -15,17 +17,21 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Oveleon\ContaoCookiebar\ContaoCookiebar;
 
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getBundles(ParserInterface $parser)
     {
+        $loadAfter = [ContaoCoreBundle::class];
+
+        if (class_exists(ContaoCookiebar::class)) {
+            $loadAfter = [ContaoCookiebar::class];
+        }
+
         return [
             BundleConfig::create(BweinBfvElementsBundle::class)
-                ->setLoadAfter([ContaoCoreBundle::class]),
+                ->setLoadAfter($loadAfter),
         ];
     }
 }

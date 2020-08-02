@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of BFV Elements for Contao Open Source CMS.
  *
@@ -40,6 +42,7 @@ class BfvWidgetElementController extends AbstractContentElementController
     {
         $provider = $this->widgetFactory->getWidgetProvider($model->bfvWidgetProvider);
         $setting = BfvElementsSettingModel::findByPk($model->bfvSetting);
+
         if ($provider instanceof WidgetProviderInterface && $setting instanceof BfvElementsSettingModel) {
             $provider->setWidgetId('bfv_widget_'.$model->id);
             $provider->setClubId($setting->clubId);
@@ -76,6 +79,7 @@ class BfvWidgetElementController extends AbstractContentElementController
     {
         $size = 'undefined';
         $arrSize = StringUtil::deserialize($sizeRaw);
+
         if (isset($arrSize['value']) && '' !== $arrSize['value'] && $arrSize['value'] >= 0) {
             $size = $arrSize['value'].$arrSize['unit'];
         }

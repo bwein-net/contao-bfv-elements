@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of BFV Elements for Contao Open Source CMS.
  *
@@ -17,7 +19,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class WidgetProviderCompilerPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (false === $container->hasDefinition(WidgetFactory::class)) {
             return;
@@ -26,7 +28,8 @@ class WidgetProviderCompilerPass implements CompilerPassInterface
         $taggedServices = $container->findTaggedServiceIds(
             'bwein.bfv_elements.widget.provider'
         );
-        foreach ($taggedServices as $id => $attributes) {
+
+        foreach (array_keys($taggedServices) as $id) {
             $definition->addMethodCall('addProvider', [new Reference($id)]);
         }
     }

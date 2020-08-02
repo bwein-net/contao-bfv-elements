@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of BFV Elements for Contao Open Source CMS.
  *
@@ -41,8 +43,9 @@ class WidgetFactory
     public function getWidgetProviderOptions(): array
     {
         $return = [];
+
         foreach ($this->provider as $provider) {
-            /* @var $provider WidgetProviderInterface */
+            /** @var WidgetProviderInterface $provider */
             $return[$provider->getSupports()] = $provider->getLabel();
         }
 
@@ -54,7 +57,7 @@ class WidgetFactory
     public function getWidgetProvider(string $widgetProvider): ?WidgetProviderInterface
     {
         foreach ($this->provider as $provider) {
-            /** @var $provider WidgetProviderInterface */
+            /** @var WidgetProviderInterface $provider */
             if ($provider->supports($widgetProvider)) {
                 return $provider;
             }

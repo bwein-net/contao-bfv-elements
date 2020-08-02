@@ -15,6 +15,18 @@
                 <source>Generiert die Widgets des Bayerischen Fussball-Verbands</source>
                 <target>Generiert die Widgets des Bayerischen Fussball-Verbands</target>
             </trans-unit>
+            <trans-unit id="MSC.bfvWidget_isLoading">
+                <source>The BFV-Widget is loading...</source>
+                <target>Das BFV-Widget wird geladen...</target>
+            </trans-unit>
+            <trans-unit id="MSC.bfvWidget_acceptAndDisplayLabel">
+                <source>Accept and show</source>
+                <target>Akzeptieren und anzeigen</target>
+            </trans-unit>
+            <trans-unit id="MSC.bfvWidget_openExternal">
+                <source>Open the BFV page directly</source>
+                <target>Die BFV-Seite direkt öffnen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

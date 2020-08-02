@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of BFV Elements for Contao Open Source CMS.
  *
@@ -10,7 +12,10 @@
 
 namespace Bwein\BfvElements\Renderer\Widget\Provider;
 
+use Bwein\BfvElements\Helper\CookiebarHelper;
+use Bwein\BfvElements\Model\BfvElementsSettingModel;
 use Contao\FrontendTemplate;
+use Oveleon\ContaoCookiebar\CookieHandler;
 
 abstract class AbstractWidgetProvider implements WidgetProviderInterface
 {
@@ -33,12 +38,14 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
 
     protected $templateScripts = '';
     protected $templateInit = '';
+    private CookiebarHelper $cookiebarHelper;
 
     /**
      * AbstractBfvWidgetProvider constructor.
      */
-    public function __construct()
+    public function __construct(CookiebarHelper $cookiebarHelper)
     {
+        $this->cookiebarHelper = $cookiebarHelper;
     }
 
     public function getLabel(): string
@@ -125,17 +132,26 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
         return true;
     }
 
-    protected function addWidgetAssets(): void
+    protected function addWidgetAssets(?CookieHandler $cookieHandler): void
     {
-        $template = new FrontendTemplate($this->templateScripts ?: 'bfv_widget_scripts');
-        $GLOBALS['TL_HEAD']['bwein_bfv_widget'] = $template->parse();
+        if (null !== $cookieHandler) {
+            $GLOBALS['TL_JAVASCRIPT']['bwein_bfv_widget'] = 'bundles/bweinbfvelements/js/bfv-widget.js';
+        } else {
+            $template = new FrontendTemplate($this->templateScripts ?: 'bfv_widget_scripts');
+            $template->scriptSrc = BfvElementsSettingModel::BFV_SCRIPT_SRC_URL;
+            $GLOBALS['TL_HEAD']['bwein_bfv_widget'] = $template->parse();
+        }
     }
 
     protected function generateWidgetInit(string $widgetMethod, string $widgetParams): string
     {
-        $this->addWidgetAssets();
+        $cookiebarConfig = $this->cookiebarHelper->getCookiebarConfig();
+        $cookieHandler = $this->cookiebarHelper->getCookieHandler($cookiebarConfig);
 
-        $template = new FrontendTemplate($this->templateInit ?: 'bfv_widget_init');
+        $this->addWidgetAssets($cookieHandler);
+
+        $templateDefaultName = null !== $cookieHandler ? 'bfv_widget_init_cookiebar' : 'bfv_widget_init';
+        $template = new FrontendTemplate($this->templateInit ?: $templateDefaultName);
         $template->widgetId = $this->widgetId;
         $template->widgetMethod = $widgetMethod;
         $template->widgetParams = $widgetParams;
@@ -146,6 +162,8 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
         $template->seasonId = $this->seasonId;
         $template->width = $this->width;
         $template->height = $this->height;
+
+        $template->cookieHandler = $cookieHandler;
 
         return $template->parse();
     }

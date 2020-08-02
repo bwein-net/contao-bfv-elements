@@ -1,0 +1,82 @@
+<?php declare(strict_types=1);
+
+$url = 'https://www.bfv.de';
+
+if (!empty($this->teamId)) {
+    $url = 'https://www.bfv.de/mannschaften/'.$this->teamId;
+} elseif (!empty($this->clubId)) {
+    $url = 'https://www.bfv.de/vereine/'.$this->clubId;
+}
+?>
+<style>
+    .bfv-element .ccb-element-blocker {
+        font-size: 14px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #6f6f6f;
+    }
+    .bfv-element .ccb-element-blocker .cc-icon {
+        position: relative;
+        width: 220px;
+        height: 110px;
+        margin: 0 auto 8px;
+    }
+    .bfv-element .ccb-element-blocker .cc-icon:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("/bundles/contaocookiebar/images/default.png");
+    }
+    .bfv-element .ccb-element-blocker .cc-icon.bfvwidget:after {
+        background-image: url("/bundles/bweinbfvelements/images/bfv.svg");
+    }
+    .bfv-element .ccb-element-blocker .cc-title{
+        font-weight: bold;
+    }
+    .bfv-element .ccb-element-blocker .cc-description > p {
+        margin: 10px 0;
+    }
+    .bfv-element .ccb-element-blocker .cc-btn{
+        display: inline-block;
+        cursor: pointer;
+        padding: 8px 14px;
+        font-size: 15px;
+        outline: 0 none;
+        border: 1px solid #cfcfcf;
+        border-radius: 4px;
+        color: #444;
+        background: #f5f5f5;
+        text-decoration: none;
+    }
+    .bfv-element .ccb-element-blocker .cc-btn:hover{
+        background: #ececec;
+    }
+</style>
+<div class="bfv-element" style="width: <?php echo $this->width; ?>; height: <?php echo $this->height; ?>">
+    <div id="<?php echo $this->widgetId; ?>-blocker" class="ccb-element-blocker">
+        <div class="cc-icon bfvwidget"></div>
+        <div class="cc-title"><?php echo $this->cookieHandler->title; ?></div>
+        <div class="cc-description"><?php echo $this->cookieHandler->blockDescription; ?></div>
+        <button class="cc-btn" onclick="cookiebar.unblock(this, <?php echo $this->cookieHandler->id; ?>, window.location.href)">
+            <?php echo $this->trans('MSC.bfvWidget_acceptAndDisplayLabel'); ?>
+        </button>
+        <a class="cc-btn" target="_blank" href="<?php echo $url; ?>"><?php echo $this->trans('MSC.bfvWidget_openExternal'); ?></a>
+    </div>
+    <div id="<?php echo $this->widgetId; ?>" class="content" style="display: none;">
+        <?php echo $this->trans('MSC.bfvWidget_isLoading'); ?>
+    </div>
+</div>
+<script type="application/javascript">
+    function init_<?php echo $this->widgetId; ?>() {
+        document.getElementById('<?php echo $this->widgetId; ?>-blocker').style.display = "none";
+        document.getElementById('<?php echo $this->widgetId; ?>').style.display = "block";
+        <?php echo $this->widgetMethod; ?>(<?php echo $this->widgetParams; ?>);
+    }
+    bwein_bfv_widget.addCallback('init_<?php echo $this->widgetId; ?>');
+</script>

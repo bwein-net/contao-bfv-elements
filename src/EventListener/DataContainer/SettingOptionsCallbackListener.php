@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of BFV Elements for Contao Open Source CMS.
  *
@@ -23,6 +25,7 @@ class SettingOptionsCallbackListener implements ServiceAnnotationInterface
     public function __invoke(DataContainer $dc): array
     {
         $settings = BfvElementsSettingModel::findAll();
+
         if (null === $settings) {
             return [];
         }

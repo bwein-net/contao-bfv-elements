@@ -1,0 +1,17 @@
+imports:
+  - { resource: 'vendor/contao/easy-coding-standard/config/set/contao.yaml' }
+
+parameters:
+  file_extensions:
+    - php
+    - html5
+  skip:
+    SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff:
+      - '*.html5'
+    SlevomatCodingStandard\Sniffs\TypeHints\DisallowArrayTypeHintSyntaxSniff:
+      - '*/Model/*'
+  cache_directory: '%sys_get_temp_dir%/ecs_self_cache'
+
+services:
+  PhpCsFixer\Fixer\Comment\HeaderCommentFixer:
+    header: "This file is part of BFV Elements for Contao Open Source CMS.\n\n(c) bwein.net\n\n@license MIT"

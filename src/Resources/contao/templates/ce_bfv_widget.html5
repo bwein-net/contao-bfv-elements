@@ -1,7 +1,0 @@
-<?php $this->extend('block_unsearchable'); ?>
-
-<?php if (!empty($this->bfvWidgetCode)): ?>
-    <?php $this->block('content'); ?>
-    <?= $this->bfvWidgetCode ?>
-    <?php $this->endblock(); ?>
-<?php endif; ?>

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of BFV Elements for Contao Open Source CMS.
  *
@@ -16,10 +18,15 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class BweinBfvElementsBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         parent::build($container);
 
         $container->addCompilerPass(new WidgetProviderCompilerPass());
+    }
+
+    public function getPath()
+    {
+        return \dirname(__DIR__);
     }
 }

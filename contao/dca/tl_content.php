@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of BFV Elements for Contao Open Source CMS.
+ *
+ * (c) bwein.net
+ *
+ * @license MIT
+ */
+
 $GLOBALS['TL_DCA']['tl_content']['palettes']['bfvWidget'] = '
     {type_legend},type,headline;
     {bfvWidget_legend},

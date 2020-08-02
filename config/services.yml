@@ -7,6 +7,6 @@ services:
             tags: ['bwein.bfv_elements.widget.provider']
 
     Bwein\BfvElements\:
-        resource: '../../../src/*'
-        exclude: '../../../src/{DependencyInjection,Resources}'
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Resources}'
 
