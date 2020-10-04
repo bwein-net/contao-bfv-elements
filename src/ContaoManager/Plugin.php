@@ -23,15 +23,9 @@ class Plugin implements BundlePluginInterface
 {
     public function getBundles(ParserInterface $parser)
     {
-        $loadAfter = [ContaoCoreBundle::class];
-
-        if (class_exists(ContaoCookiebar::class)) {
-            $loadAfter = [ContaoCookiebar::class];
-        }
-
         return [
             BundleConfig::create(BweinBfvElementsBundle::class)
-                ->setLoadAfter($loadAfter),
+                ->setLoadAfter([ContaoCoreBundle::class, ContaoCookiebar::class]),
         ];
     }
 }
