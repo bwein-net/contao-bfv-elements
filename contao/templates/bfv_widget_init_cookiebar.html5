@@ -63,10 +63,10 @@ if (!empty($this->teamId)) {
         <div class="cc-icon bfvwidget"></div>
         <div class="cc-title"><?php echo $this->cookieHandler->title; ?></div>
         <div class="cc-description"><?php echo $this->cookieHandler->blockDescription; ?></div>
-        <button class="cc-btn" onclick="cookiebar.unblock(this, <?php echo $this->cookieHandler->id; ?>, window.location.href)">
+        <a class="cc-btn" target="_blank" href="<?php echo $url; ?>"><?php echo $this->trans('MSC.bfvWidget_openExternal'); ?></a>
+        <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?php echo $this->cookieHandler->id; ?>, window.location.href)">
             <?php echo $this->trans('MSC.bfvWidget_acceptAndDisplayLabel'); ?>
         </button>
-        <a class="cc-btn" target="_blank" href="<?php echo $url; ?>"><?php echo $this->trans('MSC.bfvWidget_openExternal'); ?></a>
     </div>
     <div id="<?php echo $this->widgetId; ?>" class="content" style="display: none;">
         <?php echo $this->trans('MSC.bfvWidget_isLoading'); ?>
