@@ -33,6 +33,12 @@ class CompileCookieTypeListener implements ServiceAnnotationInterface
     public function __invoke(string $type, CookieHandler $cookieHandler): void
     {
         if ($type === $this->cookiebarHelper::COOKIEBAR_SETTING_TYPE_NAME) {
+            $GLOBALS['TL_JAVASCRIPT']['bwein_bfv_widget'] = 'bundles/bweinbfvelements/js/bfv-widget.js';
+            $cookieHandler->addScript(
+                'bwein_bfv_widget.initBlocker('.$cookieHandler->id.', [\''.BfvElementsSettingModel::BFV_SCRIPT_SRC_URL.'\'])',
+                false,
+                CookieHandler::POS_BELOW
+            );
             $cookieHandler->addScript(
                 'bwein_bfv_widget.initWidgetScripts([\''.BfvElementsSettingModel::BFV_SCRIPT_SRC_URL.'\'])',
                 true,

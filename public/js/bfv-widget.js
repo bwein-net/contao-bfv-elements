@@ -3,9 +3,14 @@ let BweinBfvWidget = (function () {
 
         let Constructor = function () {
             let _widgetCallbacks = [];
+            let _blockerCallbacks = [];
 
-            this.addCallback = function ($callback) {
-                _widgetCallbacks.push($callback)
+            this.addCallback = function ($callback, isWidget = true) {
+                if (isWidget) {
+                    _widgetCallbacks.push($callback);
+                    return;
+                }
+                _blockerCallbacks.push($callback);
             };
             this.initWidgetScripts = function (scriptSrc) {
                 var self = this;
@@ -28,6 +33,22 @@ let BweinBfvWidget = (function () {
                     }
                     window[functionName]();
                 }
+            };
+            this.initBlocker = function (cookieId, scriptSrc) {
+                for (var i = 0; i < _blockerCallbacks.length; i++) {
+                    var functionName = _blockerCallbacks[i];
+                    if (typeof window[functionName] !== "function") {
+                        console.error(functionName + ' is missing');
+                        continue;
+                    }
+                    window[functionName]();
+                }
+                let unblockWidgets = function () {
+                    bwein_bfv_widget.initWidgetScripts(scriptSrc)
+                }
+                document.addEventListener("DOMContentLoaded", function() {
+                    cookiebar.addModule(cookieId, unblockWidgets);
+                });
             };
         }
         return Constructor;

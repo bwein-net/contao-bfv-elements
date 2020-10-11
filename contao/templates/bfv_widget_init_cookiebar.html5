@@ -61,22 +61,29 @@ if (!empty($this->teamId)) {
 <div class="bfv-element" style="width: <?php echo $this->width; ?>; height: <?php echo $this->height; ?>">
     <div id="<?php echo $this->widgetId; ?>-blocker" class="ccb-element-blocker">
         <div class="cc-icon bfvwidget"></div>
-        <div class="cc-title"><?php echo $this->cookieHandler->title; ?></div>
-        <div class="cc-description"><?php echo $this->cookieHandler->blockDescription; ?></div>
-        <a class="cc-btn" target="_blank" href="<?php echo $url; ?>"><?php echo $this->trans('MSC.bfvWidget_openExternal'); ?></a>
-        <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?php echo $this->cookieHandler->id; ?>, window.location.href)">
-            <?php echo $this->trans('MSC.bfvWidget_acceptAndDisplayLabel'); ?>
-        </button>
+        <div id="<?php echo $this->widgetId; ?>-blocker-inner" style="display: none;">
+            <div class="cc-title"><?php echo $this->cookieHandler->title; ?></div>
+            <div class="cc-description"><?php echo $this->cookieHandler->blockDescription; ?></div>
+            <a class="cc-btn" target="_blank" href="<?php echo $url; ?>"><?php echo $this->trans('MSC.bfvWidget_openExternal'); ?></a>
+            <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?php echo $this->cookieHandler->id; ?>, window.location.href)">
+                <?php echo $this->trans('MSC.bfvWidget_acceptAndDisplayLabel'); ?>
+            </button>
+        </div>
     </div>
     <div id="<?php echo $this->widgetId; ?>" class="content" style="display: none;">
         <?php echo $this->trans('MSC.bfvWidget_isLoading'); ?>
     </div>
 </div>
 <script type="application/javascript">
-    function init_<?php echo $this->widgetId; ?>() {
+    function init_blocker_<?php echo $this->widgetId; ?>() {
+        document.getElementById('<?php echo $this->widgetId; ?>-blocker-inner').style.display = "block";
+        document.getElementById('<?php echo $this->widgetId; ?>').style.display = "none";
+    }
+    bwein_bfv_widget.addCallback('init_blocker_<?php echo $this->widgetId; ?>', false);
+    function init_widget_<?php echo $this->widgetId; ?>() {
         document.getElementById('<?php echo $this->widgetId; ?>-blocker').style.display = "none";
         document.getElementById('<?php echo $this->widgetId; ?>').style.display = "block";
         <?php echo $this->widgetMethod; ?>(<?php echo $this->widgetParams; ?>);
     }
-    bwein_bfv_widget.addCallback('init_<?php echo $this->widgetId; ?>');
+    bwein_bfv_widget.addCallback('init_widget_<?php echo $this->widgetId; ?>');
 </script>
