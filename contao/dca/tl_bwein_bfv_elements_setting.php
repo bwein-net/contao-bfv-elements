@@ -10,6 +10,8 @@ declare(strict_types=1);
  * @license MIT
  */
 
+use Contao\Controller;
+
 $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
     'config' => [
         'dataContainer' => 'Table',
@@ -174,7 +176,7 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
             'exclude' => true,
             'inputType' => 'select',
             'options_callback' => static function () {
-                return Contao\Controller::getTemplateGroup('bfv_widget_scripts');
+                return Controller::getTemplateGroup('bfv_widget_scripts');
             },
             'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(64) NOT NULL default ''",
@@ -183,7 +185,7 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
             'exclude' => true,
             'inputType' => 'select',
             'options_callback' => static function () {
-                return Contao\Controller::getTemplateGroup('bfv_widget_init');
+                return Controller::getTemplateGroup('bfv_widget_init');
             },
             'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(64) NOT NULL default ''",

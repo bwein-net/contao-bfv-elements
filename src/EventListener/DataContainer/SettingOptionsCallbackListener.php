@@ -24,7 +24,7 @@ class SettingOptionsCallbackListener implements ServiceAnnotationInterface
 {
     public function __invoke(DataContainer $dc): array
     {
-        $settings = BfvElementsSettingModel::findAll(['order' =>'name']);
+        $settings = BfvElementsSettingModel::findAll(['order' => 'name']);
 
         if (null === $settings) {
             return [];
