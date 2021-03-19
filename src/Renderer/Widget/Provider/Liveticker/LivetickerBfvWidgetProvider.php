@@ -21,11 +21,7 @@ class LivetickerBfvWidgetProvider extends AbstractWidgetProvider
 
     public function validate(): bool
     {
-        if (empty($this->clubId) || empty($this->teamId)) {
-            return false;
-        }
-
-        return true;
+        return !(empty($this->clubId) || empty($this->teamId));
     }
 
     public function generateWidgetCode(): string

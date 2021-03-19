@@ -37,7 +37,7 @@ class BfvElementsSettingModel extends Model
     public const BFV_SCRIPT_SRC_URL = 'https://widget-prod.bfv.de/widget/widgetresource/widgetjs';
     protected static $strTable = 'tl_bwein_bfv_elements_setting';
 
-    public static function generateColorValue($colorValue)
+    public static function generateColorValue($colorValue): string
     {
         if (empty($colorValue)) {
             return 'undefined';

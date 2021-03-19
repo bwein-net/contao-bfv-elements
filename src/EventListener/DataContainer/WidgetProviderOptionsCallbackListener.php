@@ -15,12 +15,11 @@ namespace Bwein\BfvElements\EventListener\DataContainer;
 use Bwein\BfvElements\Renderer\Widget\WidgetFactory;
 use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\DataContainer;
-use Terminal42\ServiceAnnotationBundle\ServiceAnnotationInterface;
 
 /**
  * @Callback(table="tl_content", target="fields.bfvWidgetProvider.options")
  */
-class WidgetProviderOptionsCallbackListener implements ServiceAnnotationInterface
+class WidgetProviderOptionsCallbackListener
 {
     /**
      * @var WidgetFactory

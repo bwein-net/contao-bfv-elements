@@ -21,11 +21,7 @@ class ChartBfvWidgetProvider extends AbstractWidgetProvider
 
     public function validate(): bool
     {
-        if (empty($this->seasonId) || empty($this->teamId)) {
-            return false;
-        }
-
-        return true;
+        return !(empty($this->seasonId) || empty($this->teamId));
     }
 
     public function generateWidgetCode(): string

@@ -44,11 +44,7 @@ class CookiebarHelper
 
         $config = Cookiebar::getConfigByPage($objPage->rootId);
 
-        if (null === $config) {
-            return null;
-        }
-
-        return $config;
+        return $config ?? null;
     }
 
     public function getCookieHandler(?object $config): ?CookieHandler

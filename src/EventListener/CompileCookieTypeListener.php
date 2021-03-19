@@ -16,12 +16,11 @@ use Bwein\BfvElements\Helper\CookiebarHelper;
 use Bwein\BfvElements\Model\BfvElementsSettingModel;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Oveleon\ContaoCookiebar\CookieHandler;
-use Terminal42\ServiceAnnotationBundle\ServiceAnnotationInterface;
 
 /**
  * @Hook("compileCookieType")
  */
-class CompileCookieTypeListener implements ServiceAnnotationInterface
+class CompileCookieTypeListener
 {
     private CookiebarHelper $cookiebarHelper;
 

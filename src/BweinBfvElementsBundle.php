@@ -25,7 +25,7 @@ class BweinBfvElementsBundle extends Bundle
         $container->addCompilerPass(new WidgetProviderCompilerPass());
     }
 
-    public function getPath()
+    public function getPath(): string
     {
         return \dirname(__DIR__);
     }
