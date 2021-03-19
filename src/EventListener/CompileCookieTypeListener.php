@@ -22,7 +22,7 @@ use Oveleon\ContaoCookiebar\CookieHandler;
  */
 class CompileCookieTypeListener
 {
-    private CookiebarHelper $cookiebarHelper;
+    private $cookiebarHelper;
 
     public function __construct(CookiebarHelper $cookiebarHelper)
     {

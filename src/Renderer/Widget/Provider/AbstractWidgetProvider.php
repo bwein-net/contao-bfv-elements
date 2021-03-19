@@ -38,7 +38,7 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
 
     protected $templateScripts = '';
     protected $templateInit = '';
-    private CookiebarHelper $cookiebarHelper;
+    private $cookiebarHelper;
 
     /**
      * AbstractBfvWidgetProvider constructor.

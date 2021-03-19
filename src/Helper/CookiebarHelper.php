@@ -21,8 +21,8 @@ class CookiebarHelper
 {
     public const COOKIEBAR_SETTING_TYPE_NAME = 'bfvWidgets';
 
-    private RequestStack $requestStack;
-    private ScopeMatcher $scopeMatcher;
+    private $requestStack;
+    private $scopeMatcher;
 
     public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
     {
