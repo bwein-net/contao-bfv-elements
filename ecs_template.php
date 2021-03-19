@@ -15,5 +15,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import($vendorDir.'/contao/easy-coding-standard/config/template.php');
 
     $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::CACHE_DIRECTORY, sys_get_temp_dir().'/ecs_template_cache_contact');
+    $parameters->set(Option::CACHE_DIRECTORY, sys_get_temp_dir().'/ecs_template_cache_bfv_elements');
 };

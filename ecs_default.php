@@ -24,7 +24,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     ]);
 
     $parameters->set(Option::EXCLUDE_PATHS, ['*/templates/*']);
-    $parameters->set(Option::CACHE_DIRECTORY, sys_get_temp_dir().'/ecs_default_cache_contact');
+    $parameters->set(Option::CACHE_DIRECTORY, sys_get_temp_dir().'/ecs_default_cache_bfv_elements');
 
     $services = $containerConfigurator->services();
     $services
