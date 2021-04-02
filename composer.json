@@ -1,6 +1,5 @@
 {
     "name": "bwein-net/contao-bfv-elements",
-    "type": "contao-bundle",
     "description": "BFV Elements for Contao Open Source CMS",
     "keywords": [
         "contao",
@@ -14,11 +13,29 @@
         "mannschaft",
         "element"
     ],
+    "type": "contao-bundle",
+    "homepage": "https://github.com/bwein-net/contao-bfv-elements",
     "license": "MIT",
     "authors": [
         {
             "name": "bwein.net",
-            "homepage": "https://bwein.net/"
+            "homepage": "https://bwein.net/",
+            "role": "Developer"
+        },
+        {
+            "name": "Ralf Baussenwein",
+            "homepage": "https://github.com/rabauss",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/bwein-net/contao-bfv-elements/issues",
+        "source": "https://github.com/bwein-net/contao-bfv-elements"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/rabauss"
         }
     ],
     "require": {
