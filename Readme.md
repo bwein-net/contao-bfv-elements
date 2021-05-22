@@ -7,5 +7,5 @@ This Bundle provides content elements for the widgets of Bayerischer Fussball Ve
 Install the bundle via Composer:
 
 ```
-composer require bwein-net/contao-bfv-widget-element
+composer require bwein-net/contao-bfv-elements
 ```
