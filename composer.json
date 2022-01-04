@@ -53,7 +53,7 @@
     "oveleon/contao-cookiebar": "Supports blocking of cookies from the BFV widgets."
   },
   "conflict": {
-    "oveleon/contao-cookiebar": ">=1.10.0"
+    "oveleon/contao-cookiebar": "<=1.10.1"
   },
   "autoload": {
     "psr-4": {
