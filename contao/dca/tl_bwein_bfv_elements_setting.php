@@ -53,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
             ],
             'delete' => [
                 'href' => 'act=delete',
-                'attributes' => 'onclick="if(!confirm(\''.$GLOBALS['TL_LANG']['MSC']['deleteConfirm'].'\'))return false;Backend.getScrollOffset()"',
+                'attributes' => 'onclick="if(!confirm(\''.($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null).'\'))return false;Backend.getScrollOffset()"',
                 'icon' => 'delete.svg',
             ],
             'show' => [
