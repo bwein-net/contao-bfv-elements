@@ -11,10 +11,11 @@ declare(strict_types=1);
  */
 
 use Contao\Controller;
+use Contao\DC_Table;
 
 $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
     'config' => [
-        'dataContainer' => 'Table',
+        'dataContainer' => DC_Table::class,
         'enableVersioning' => true,
         'sql' => [
             'keys' => [
