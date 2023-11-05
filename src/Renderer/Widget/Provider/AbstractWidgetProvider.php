@@ -20,24 +20,33 @@ use Oveleon\ContaoCookiebar\CookieHandler;
 abstract class AbstractWidgetProvider implements WidgetProviderInterface
 {
     protected $label = '';
+
     protected $supports = '';
 
     protected $widgetId = '';
 
     protected $clubId = '';
+
     protected $teamId = '';
+
     protected $seasonId = '';
 
     protected $width = '300px';
+
     protected $height = '300px';
 
     protected $colorResults = 'undefined';
+
     protected $colorNav = 'undefined';
+
     protected $backgroundNav = 'undefined';
+
     protected $colorClubName = 'undefined';
 
     protected $templateScripts = '';
+
     protected $templateInit = '';
+
     private $cookiebarHelper;
 
     /**
@@ -132,7 +141,7 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
         return true;
     }
 
-    protected function addWidgetAssets(?CookieHandler $cookieHandler): void
+    protected function addWidgetAssets(CookieHandler|null $cookieHandler): void
     {
         if (null !== $cookieHandler) {
             $GLOBALS['TL_JAVASCRIPT']['bwein_bfv_widget'] = 'bundles/bweinbfvelements/js/bfv-widget.js';

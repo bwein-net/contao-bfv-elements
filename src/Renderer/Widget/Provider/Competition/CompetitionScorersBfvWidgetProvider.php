@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Competition;
 class CompetitionScorersBfvWidgetProvider extends AbstractCompetitionBfvWidgetProvider
 {
     protected $label = 'Liga: Torschützen';
+
     protected $supports = 'competition_scorers';
 
     protected function getWidgetParams(): array

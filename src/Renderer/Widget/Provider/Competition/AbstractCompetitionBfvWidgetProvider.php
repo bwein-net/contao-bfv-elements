@@ -38,7 +38,7 @@ abstract class AbstractCompetitionBfvWidgetProvider extends AbstractWidgetProvid
                 '"%s", "%s", %s',
                 $this->seasonId,
                 $this->widgetId,
-                json_encode($this->getWidgetParams())
+                json_encode($this->getWidgetParams()),
             );
 
             return $this->generateWidgetInit('BFVWidget.HTML5.zeigeWettbewerb', $widgetParams);

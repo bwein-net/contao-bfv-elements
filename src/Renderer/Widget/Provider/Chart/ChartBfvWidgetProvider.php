@@ -17,6 +17,7 @@ use Bwein\BfvElements\Renderer\Widget\Provider\AbstractWidgetProvider;
 class ChartBfvWidgetProvider extends AbstractWidgetProvider
 {
     protected $label = 'Tabelle';
+
     protected $supports = 'chart';
 
     public function validate(): bool
@@ -31,7 +32,7 @@ class ChartBfvWidgetProvider extends AbstractWidgetProvider
                 '"%s", "%s", %s',
                 $this->seasonId,
                 $this->widgetId,
-                json_encode($this->getWidgetParams())
+                json_encode($this->getWidgetParams()),
             );
 
             return $this->generateWidgetInit('BFVWidget.HTML5.zeigeWettbewerbsTabelle', $widgetParams);

@@ -36,12 +36,12 @@ class CompileCookieTypeListener
             $cookieHandler->addScript(
                 'bwein_bfv_widget.initBlocker('.$cookieHandler->id.', [\''.BfvElementsSettingModel::BFV_SCRIPT_SRC_URL.'\'])',
                 CookieHandler::LOAD_UNCONFIRMED,
-                CookieHandler::POS_BELOW
+                CookieHandler::POS_BELOW,
             );
             $cookieHandler->addScript(
                 'bwein_bfv_widget.initWidgetScripts([\''.BfvElementsSettingModel::BFV_SCRIPT_SRC_URL.'\'])',
                 CookieHandler::LOAD_CONFIRMED,
-                CookieHandler::POS_BELOW
+                CookieHandler::POS_BELOW,
             );
         }
     }

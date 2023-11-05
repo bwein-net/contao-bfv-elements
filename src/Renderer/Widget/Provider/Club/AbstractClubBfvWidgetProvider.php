@@ -38,7 +38,7 @@ abstract class AbstractClubBfvWidgetProvider extends AbstractWidgetProvider
                 '"%s", "%s", %s',
                 $this->clubId,
                 $this->widgetId,
-                json_encode($this->getWidgetParams())
+                json_encode($this->getWidgetParams()),
             );
 
             return $this->generateWidgetInit('BFVWidget.HTML5.zeigeVereinSpiele', $widgetParams);

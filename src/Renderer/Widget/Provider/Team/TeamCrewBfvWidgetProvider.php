@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Team;
 class TeamCrewBfvWidgetProvider extends AbstractTeamBfvWidgetProvider
 {
     protected $label = 'Mannschaft: Kader';
+
     protected $supports = 'team_crew';
 
     protected function getWidgetParams(): array

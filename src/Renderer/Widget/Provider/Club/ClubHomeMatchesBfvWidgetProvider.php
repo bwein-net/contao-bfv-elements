@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Club;
 class ClubHomeMatchesBfvWidgetProvider extends AbstractClubBfvWidgetProvider
 {
     protected $label = 'Verein: Heimspiele';
+
     protected $supports = 'club_homematches';
 
     protected function getWidgetParams(): array

@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Team;
 class TeamChartBfvWidgetProvider extends AbstractTeamBfvWidgetProvider
 {
     protected $label = 'Mannschaft: Tabellen';
+
     protected $supports = 'team_chart';
 
     protected function getWidgetParams(): array

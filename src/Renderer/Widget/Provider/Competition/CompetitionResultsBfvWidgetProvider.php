@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Competition;
 class CompetitionResultsBfvWidgetProvider extends AbstractCompetitionBfvWidgetProvider
 {
     protected $label = 'Liga: Ergebnisse';
+
     protected $supports = 'competition_results';
 
     protected function getWidgetParams(): array

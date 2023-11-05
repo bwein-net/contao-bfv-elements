@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Club;
 class ClubMatchesBfvWidgetProvider extends AbstractClubBfvWidgetProvider
 {
     protected $label = 'Verein: Spiele';
+
     protected $supports = 'club_matches';
 
     protected function getWidgetParams(): array

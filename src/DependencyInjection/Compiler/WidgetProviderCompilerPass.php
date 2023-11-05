@@ -26,7 +26,7 @@ class WidgetProviderCompilerPass implements CompilerPassInterface
         }
         $definition = $container->getDefinition(WidgetFactory::class);
         $taggedServices = $container->findTaggedServiceIds(
-            'bwein.bfv_elements.widget.provider'
+            'bwein.bfv_elements.widget.provider',
         );
 
         foreach (array_keys($taggedServices) as $id) {

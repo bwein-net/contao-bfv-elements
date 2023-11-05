@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Competition;
 class CompetitionChartBfvWidgetProvider extends AbstractCompetitionBfvWidgetProvider
 {
     protected $label = 'Liga: Tabellen';
+
     protected $supports = 'competition_chart';
 
     protected function getWidgetParams(): array

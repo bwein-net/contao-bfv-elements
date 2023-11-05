@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Club;
 class ClubTeamsBfvWidgetProvider extends AbstractClubBfvWidgetProvider
 {
     protected $label = 'Verein: Mannschaften';
+
     protected $supports = 'club_teams';
 
     protected function getWidgetParams(): array

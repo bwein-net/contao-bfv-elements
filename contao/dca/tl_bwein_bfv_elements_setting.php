@@ -175,18 +175,14 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
         'templateScripts' => [
             'exclude' => true,
             'inputType' => 'select',
-            'options_callback' => static function () {
-                return Controller::getTemplateGroup('bfv_widget_scripts');
-            },
+            'options_callback' => static fn () => Controller::getTemplateGroup('bfv_widget_scripts'),
             'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(64) NOT NULL default ''",
         ],
         'templateInit' => [
             'exclude' => true,
             'inputType' => 'select',
-            'options_callback' => static function () {
-                return Controller::getTemplateGroup('bfv_widget_init');
-            },
+            'options_callback' => static fn () => Controller::getTemplateGroup('bfv_widget_init'),
             'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(64) NOT NULL default ''",
         ],

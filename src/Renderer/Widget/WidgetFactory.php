@@ -54,7 +54,7 @@ class WidgetFactory
         return $return;
     }
 
-    public function getWidgetProvider(string $widgetProvider): ?WidgetProviderInterface
+    public function getWidgetProvider(string $widgetProvider): WidgetProviderInterface|null
     {
         foreach ($this->provider as $provider) {
             /** @var WidgetProviderInterface $provider */

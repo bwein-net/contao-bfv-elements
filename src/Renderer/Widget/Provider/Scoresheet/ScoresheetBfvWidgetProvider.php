@@ -17,6 +17,7 @@ use Bwein\BfvElements\Renderer\Widget\Provider\AbstractWidgetProvider;
 class ScoresheetBfvWidgetProvider extends AbstractWidgetProvider
 {
     protected $label = 'Spielbericht';
+
     protected $supports = 'scoresheet';
 
     public function validate(): bool
@@ -35,7 +36,7 @@ class ScoresheetBfvWidgetProvider extends AbstractWidgetProvider
                 '"%s", "%s", %s',
                 $this->teamId,
                 $this->widgetId,
-                json_encode($this->getWidgetParams())
+                json_encode($this->getWidgetParams()),
             );
 
             return $this->generateWidgetInit('BFVWidget.HTML5.zeigeSpielbericht', $widgetParams);

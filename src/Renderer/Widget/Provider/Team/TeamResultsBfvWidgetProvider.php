@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Team;
 class TeamResultsBfvWidgetProvider extends AbstractTeamBfvWidgetProvider
 {
     protected $label = 'Mannschaft: Ergebnisse';
+
     protected $supports = 'team_results';
 
     protected function getWidgetParams(): array

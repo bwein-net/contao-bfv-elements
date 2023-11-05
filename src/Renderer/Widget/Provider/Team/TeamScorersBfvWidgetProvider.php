@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Team;
 class TeamScorersBfvWidgetProvider extends AbstractTeamBfvWidgetProvider
 {
     protected $label = 'Mannschaft: Torschützen';
+
     protected $supports = 'team_scorers';
 
     protected function getWidgetParams(): array

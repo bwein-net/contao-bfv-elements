@@ -41,7 +41,7 @@ abstract class AbstractTeamBfvWidgetProvider extends AbstractWidgetProvider
                 '"%s", "%s", %s',
                 $this->teamId,
                 $this->widgetId,
-                json_encode($this->getWidgetParams())
+                json_encode($this->getWidgetParams()),
             );
 
             return $this->generateWidgetInit('BFVWidget.HTML5.zeigeMannschaftKomplett', $widgetParams);

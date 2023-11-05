@@ -15,6 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider\Team;
 class TeamLivetickerBfvWidgetProvider extends AbstractTeamBfvWidgetProvider
 {
     protected $label = 'Mannschaft: Liveticker';
+
     protected $supports = 'team_liveticker';
 
     protected function getWidgetParams(): array
