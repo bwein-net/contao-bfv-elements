@@ -38,7 +38,7 @@ class BfvWidgetElementController extends AbstractContentElementController
         $this->widgetFactory = $widgetFactory;
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
         $provider = $this->widgetFactory->getWidgetProvider($model->bfvWidgetProvider);
         $setting = BfvElementsSettingModel::findByPk($model->bfvSetting);
