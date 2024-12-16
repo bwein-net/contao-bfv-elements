@@ -15,12 +15,12 @@ namespace Bwein\BfvElements\EventListener;
 use Bwein\BfvElements\Helper\CookiebarHelper;
 use Bwein\BfvElements\Model\BfvElementsSettingModel;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
-use Oveleon\ContaoCookiebar\CookieHandler;
+use Oveleon\ContaoCookiebar\Cookie;
 
 /**
- * @Hook("compileCookieType")
+ * @Hook("addCookieType")
  */
-class CompileCookieTypeListener
+class AddCookieTypeListener
 {
     private $cookiebarHelper;
 
@@ -29,19 +29,19 @@ class CompileCookieTypeListener
         $this->cookiebarHelper = $cookiebarHelper;
     }
 
-    public function __invoke(string $type, CookieHandler $cookieHandler): void
+    public function __invoke(string $type, Cookie $cookie): void
     {
         if ($type === $this->cookiebarHelper::COOKIEBAR_SETTING_TYPE_NAME) {
             $GLOBALS['TL_JAVASCRIPT']['bwein_bfv_widget'] = 'bundles/bweinbfvelements/js/bfv-widget.js';
-            $cookieHandler->addScript(
-                'bwein_bfv_widget.initBlocker('.$cookieHandler->id.', [\''.BfvElementsSettingModel::BFV_SCRIPT_SRC_URL.'\'])',
-                CookieHandler::LOAD_UNCONFIRMED,
-                CookieHandler::POS_BELOW,
+            $cookie->addScript(
+                'bwein_bfv_widget.initBlocker('.$cookie->id.', [\''.BfvElementsSettingModel::BFV_SCRIPT_SRC_URL.'\'])',
+                Cookie::LOAD_UNCONFIRMED,
+                Cookie::POS_BELOW,
             );
-            $cookieHandler->addScript(
+            $cookie->addScript(
                 'bwein_bfv_widget.initWidgetScripts([\''.BfvElementsSettingModel::BFV_SCRIPT_SRC_URL.'\'])',
-                CookieHandler::LOAD_CONFIRMED,
-                CookieHandler::POS_BELOW,
+                Cookie::LOAD_CONFIRMED,
+                Cookie::POS_BELOW,
             );
         }
     }

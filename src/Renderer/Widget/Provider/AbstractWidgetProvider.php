@@ -15,7 +15,7 @@ namespace Bwein\BfvElements\Renderer\Widget\Provider;
 use Bwein\BfvElements\Helper\CookiebarHelper;
 use Bwein\BfvElements\Model\BfvElementsSettingModel;
 use Contao\FrontendTemplate;
-use Oveleon\ContaoCookiebar\CookieHandler;
+use Oveleon\ContaoCookiebar\Cookie;
 
 abstract class AbstractWidgetProvider implements WidgetProviderInterface
 {
@@ -141,9 +141,9 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
         return true;
     }
 
-    protected function addWidgetAssets(CookieHandler|null $cookieHandler): void
+    protected function addWidgetAssets(Cookie|null $cookie): void
     {
-        if (null !== $cookieHandler) {
+        if (null !== $cookie) {
             $GLOBALS['TL_JAVASCRIPT']['bwein_bfv_widget'] = 'bundles/bweinbfvelements/js/bfv-widget.js';
         } else {
             $template = new FrontendTemplate($this->templateScripts ?: 'bfv_widget_scripts');
@@ -155,11 +155,11 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
     protected function generateWidgetInit(string $widgetMethod, string $widgetParams): string
     {
         $cookiebarConfig = $this->cookiebarHelper->getCookiebarConfig();
-        $cookieHandler = $this->cookiebarHelper->getCookieHandler($cookiebarConfig);
+        $cookie = $this->cookiebarHelper->getCookie($cookiebarConfig);
 
-        $this->addWidgetAssets($cookieHandler);
+        $this->addWidgetAssets($cookie);
 
-        $templateDefaultName = null !== $cookieHandler ? 'bfv_widget_init_cookiebar' : 'bfv_widget_init';
+        $templateDefaultName = null !== $cookie ? 'bfv_widget_init_cookiebar' : 'bfv_widget_init';
         $template = new FrontendTemplate($this->templateInit ?: $templateDefaultName);
         $template->widgetId = $this->widgetId;
         $template->widgetMethod = $widgetMethod;
@@ -172,7 +172,7 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
         $template->width = $this->width;
         $template->height = $this->height;
 
-        $template->cookieHandler = $cookieHandler;
+        $template->cookie = $cookie;
 
         return $template->parse();
     }
