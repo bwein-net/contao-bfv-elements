@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 
 use Contao\Controller;
+use Contao\DataContainer;
 use Contao\DC_Table;
 
 $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
@@ -26,7 +27,7 @@ $GLOBALS['TL_DCA']['tl_bwein_bfv_elements_setting'] = [
 
     'list' => [
         'sorting' => [
-            'mode' => 1,
+            'mode' => DataContainer::MODE_SORTED,
             'fields' => ['name ASC'],
             'panelLayout' => 'filter;sort,search,limit',
             'disableGrouping' => true,

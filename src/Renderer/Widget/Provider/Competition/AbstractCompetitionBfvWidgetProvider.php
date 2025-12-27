@@ -34,7 +34,7 @@ abstract class AbstractCompetitionBfvWidgetProvider extends AbstractWidgetProvid
     public function generateWidgetCode(): string
     {
         if ($this->validate()) {
-            $widgetParams = sprintf(
+            $widgetParams = \sprintf(
                 '"%s", "%s", %s',
                 $this->seasonId,
                 $this->widgetId,

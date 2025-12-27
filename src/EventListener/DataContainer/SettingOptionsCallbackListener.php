@@ -13,12 +13,10 @@ declare(strict_types=1);
 namespace Bwein\BfvElements\EventListener\DataContainer;
 
 use Bwein\BfvElements\Model\BfvElementsSettingModel;
-use Contao\CoreBundle\ServiceAnnotation\Callback;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\DataContainer;
 
-/**
- * @Callback(table="tl_content", target="fields.bfvSetting.options")
- */
+#[AsCallback(table: 'tl_content', target: 'fields.bfvSetting.options')]
 class SettingOptionsCallbackListener
 {
     public function __invoke(DataContainer $dc): array

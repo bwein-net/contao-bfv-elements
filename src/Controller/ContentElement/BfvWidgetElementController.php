@@ -17,31 +17,23 @@ use Bwein\BfvElements\Renderer\Widget\Provider\WidgetProviderInterface;
 use Bwein\BfvElements\Renderer\Widget\WidgetFactory;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\StringUtil;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @ContentElement("bfvWidget", category="bfvElements", template="ce_bfv_widget")
- */
+#[AsContentElement('bfvWidget', category: 'bfvElements', template: 'ce_bfv_widget')]
 class BfvWidgetElementController extends AbstractContentElementController
 {
-    /**
-     * @var WidgetFactory
-     */
-    private $widgetFactory;
-
-    public function __construct(WidgetFactory $widgetFactory)
+    public function __construct(private readonly WidgetFactory $widgetFactory)
     {
-        $this->widgetFactory = $widgetFactory;
     }
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
         $provider = $this->widgetFactory->getWidgetProvider($model->bfvWidgetProvider);
-        $setting = BfvElementsSettingModel::findByPk($model->bfvSetting);
+        $setting = BfvElementsSettingModel::findById($model->bfvSetting);
 
         if ($provider instanceof WidgetProviderInterface && $setting instanceof BfvElementsSettingModel) {
             $provider->setWidgetId('bfv_widget_'.$model->id);

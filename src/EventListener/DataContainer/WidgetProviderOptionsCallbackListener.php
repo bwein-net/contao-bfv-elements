@@ -13,22 +13,14 @@ declare(strict_types=1);
 namespace Bwein\BfvElements\EventListener\DataContainer;
 
 use Bwein\BfvElements\Renderer\Widget\WidgetFactory;
-use Contao\CoreBundle\ServiceAnnotation\Callback;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\DataContainer;
 
-/**
- * @Callback(table="tl_content", target="fields.bfvWidgetProvider.options")
- */
+#[AsCallback(table: 'tl_content', target: 'fields.bfvWidgetProvider.options')]
 class WidgetProviderOptionsCallbackListener
 {
-    /**
-     * @var WidgetFactory
-     */
-    private $widgetFactory;
-
-    public function __construct(WidgetFactory $widgetFactory)
+    public function __construct(private readonly WidgetFactory $widgetFactory)
     {
-        $this->widgetFactory = $widgetFactory;
     }
 
     public function __invoke(DataContainer $dc): array

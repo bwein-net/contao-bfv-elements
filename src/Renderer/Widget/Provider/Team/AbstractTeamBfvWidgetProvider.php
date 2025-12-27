@@ -37,7 +37,7 @@ abstract class AbstractTeamBfvWidgetProvider extends AbstractWidgetProvider
     public function generateWidgetCode(): string
     {
         if ($this->validate()) {
-            $widgetParams = sprintf(
+            $widgetParams = \sprintf(
                 '"%s", "%s", %s',
                 $this->teamId,
                 $this->widgetId,

@@ -47,14 +47,11 @@ abstract class AbstractWidgetProvider implements WidgetProviderInterface
 
     protected $templateInit = '';
 
-    private $cookiebarHelper;
-
     /**
      * AbstractBfvWidgetProvider constructor.
      */
-    public function __construct(CookiebarHelper $cookiebarHelper)
+    public function __construct(private readonly CookiebarHelper $cookiebarHelper)
     {
-        $this->cookiebarHelper = $cookiebarHelper;
     }
 
     public function getLabel(): string
